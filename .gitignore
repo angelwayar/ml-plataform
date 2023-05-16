@@ -1,5 +1,8 @@
 # files generated
 __pycache__
+*.xml
+*.db
+.idea
 
 # environment
 /venv
