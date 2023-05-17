@@ -10,13 +10,14 @@ class UserRepositoryImpl(Repository):
     def __init__(self, session: Session):
         self.session: Session = session
 
+    def get_user_by_username(self, username: str) -> str | None:
+        username_exists = self.session.query(User).filter(User.username == username).first()
+        if username_exists is None:
+            return None
+        return username_exists.username
+
     def create(self, entity: UserEntity) -> UserEntity:
         user = User.from_entity(user=entity)
-        # user = User(
-        #     entity.username,
-        #     entity.password,
-        # )
-
         self.session.add(user)
 
         return user.to_entity()
@@ -24,13 +25,13 @@ class UserRepositoryImpl(Repository):
     def findall(self):
         pass
 
-    def find_by_id(self, id):
+    def find_by_id(self, id: int):
         pass
 
     def update(self, entity):
         pass
 
-    def delete_by_id(self, id):
+    def delete_by_id(self, id: int):
         pass
 
     def login(self, username: str, password: str) -> User:
