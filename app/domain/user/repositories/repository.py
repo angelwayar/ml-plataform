@@ -11,7 +11,7 @@ class Repository(BaseRepository[UserEntity]):
         raise NotImplementedError()
 
     @abstractmethod
-    def login(self, username: str, password: str) -> UserEntity:
+    def authenticate_user(self, entity: UserEntity) -> UserEntity | None:
         raise NotImplementedError()
 
     @abstractmethod
