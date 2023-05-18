@@ -4,19 +4,26 @@ Machine Learning Platform (MLP)
 
 ## Tasks
 
-|       Task     | In Progress | Blocked | QA  | Done |
-|----------------|-------------|---------|-----|------|
-|        1       |             |         | -   | [x]  |
-|        2       |             |         | -   | [x]  |
-|        3       |             |         | -   | [x]  |
-|        4       |             |         | -   | [x]  |
-|        5       |             |         | -   | [x]  |
-|        6       |             |         | -   | [x]  |
-|        7       |             |         | [x] | [ ]  |
-|        8       | [ ]         | [ ]     | [ ] | [ ]  |
-|        9       | [ ]         | [ ]     | [ ] | [ ]  |
+| Task | In Progress | Blocked | QA  | Done |
+|------|-------------|---------|-----|------|
+| 1    |             |         | -   | [x]  |
+| 2    |             |         | -   | [x]  |
+| 3    |             |         | -   | [x]  |
+| 4    |             |         | -   | [x]  |
+| 5    |             |         | -   | [x]  |
+| 6    |             |         | -   | [x]  |
+| 7    |             |         | [x] | [ ]  |
+| 8    |             |         | -   | [x]  |
+| 9    |             |         | -   | [x]  |
+| 10   |             |         | -   | [x]  |
+| 11   |             |         | [x] | [ ]  |
+| 12   | [ ]         | [ ]     | [ ] | [ ]  |
+| 13   | [ ]         | [ ]     | [ ] | [ ]  |
+| 14   | [ ]         | [ ]     | [ ] | [ ]  |
+| 15   | [ ]         | [ ]     | [ ] | [ ]  |
 
-### Tasks from 14-05-2023/15-05-2023
+
+### Tasks from 14-05-2023/17-05-2023
 
 1. Create user model_views User(username, password)
 2. Create user entity UserEntity(username, password)
@@ -25,8 +32,15 @@ Machine Learning Platform (MLP)
 5. Create unit work of user
 6. Create dependencies
 7. Create endpoint create_user
-8. Create endpoint login
-9. Create endpoint logout
+8. Encrypt the password
+9. Validate email
+10. Error manager
+11. Create endpoint login  
+12. Create image entity
+13. Create model Image(id, ide_user, image_base64)
+14. Implement ml_model
+15. Repository
+16. Create endpoint logout
 
 ## Architecture
 
