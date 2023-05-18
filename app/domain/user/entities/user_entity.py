@@ -1,4 +1,4 @@
-class UserEntity():
+class UserEntity:
     def __init__(
         self,
         id: int | None,

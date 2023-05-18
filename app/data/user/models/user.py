@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import Mapped, relationship
 
 from core.models.base_model import BaseEntity
 from domain.user.entities.user_entity import UserEntity
@@ -10,6 +10,8 @@ class User(BaseEntity):
 
     username: Mapped[str] = Column(String(20), unique=True)
     password: Mapped[str] = Column(String(20))
+
+    images = relationship('Image', back_populates='user')
 
     def to_entity(self) -> UserEntity:
         return UserEntity(
