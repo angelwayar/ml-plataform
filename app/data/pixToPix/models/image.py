@@ -5,13 +5,20 @@ from app.core.models.base_model import BaseEntity
 from app.domain.pixToPix.entities.image import ImageEntity
 
 
+# TODO: Puede que se tenga un problema cuando se quiera hacer un GetAll de las imagenes por la relacion
+# from app.data.user.models.user import User
+
+# if TYPE_CHECKING:
+#     from app.data.user.models.user import User
+
+
 class Image(BaseEntity):
-    __tablename__: str = 'images'
+    __tablename__ = 'images'
 
     image_base: Mapped[str] = Column(String)
-    user_id: Mapped[int] = Column(Integer, ForeignKey('users.id'))
+    owner_id: Mapped[int] = Column(Integer, ForeignKey('users.id'))
 
-    user = relationship('User', back_populates='images')
+    owner: Mapped['User'] = relationship('User', back_populates='images', uselist=False)
 
     def to_entity(self):
         return ImageEntity(
@@ -25,5 +32,5 @@ class Image(BaseEntity):
         return Image(
             id=image.id,
             user_id=image.user_id,
-            image_base=image.image
+            image_base=image.image_base
         )

@@ -1,8 +1,14 @@
-from sqlalchemy import Column, String
-from sqlalchemy.orm import Mapped, relationship
+from typing import TYPE_CHECKING
 
-from core.models.base_model import BaseEntity
-from domain.user.entities.user_entity import UserEntity
+from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship, Mapped, mapped_column
+
+from app.core.models.base_model import BaseEntity
+from app.domain.user.entities.user_entity import UserEntity
+from app.data.pixToPix.models.image import Image
+
+# if TYPE_CHECKING:
+#     from app.data.pixToPix.models.image import Image
 
 
 class User(BaseEntity):
@@ -11,7 +17,7 @@ class User(BaseEntity):
     username: Mapped[str] = Column(String(20), unique=True)
     password: Mapped[str] = Column(String(20))
 
-    images = relationship('Image', back_populates='user')
+    images: Mapped[list['Image']] = relationship('Image', back_populates='owner', uselist=True)
 
     def to_entity(self) -> UserEntity:
         return UserEntity(
