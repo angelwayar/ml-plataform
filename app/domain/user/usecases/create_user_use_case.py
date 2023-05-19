@@ -1,12 +1,12 @@
 from abc import abstractmethod
 from typing import Tuple
 
-from core.usecases.use_case import BaseUseCase
-from domain.user.entities.user_command import UserCommand
-from domain.user.entities.user_entity import UserEntity
-from domain.user.entities.user_query import UserResult
+from app.core.usecases.use_case import BaseUseCase
+from app.domain.user.entities.user_command import UserCommand
+from app.domain.user.entities.user_entity import UserEntity
+from app.domain.user.entities.user_query import UserResult
 from app.domain.user.errors.user_exception import UserAlreadyExistsError
-from domain.user.repositories.unit_of_work import UnitOfWork
+from app.domain.user.repositories.unit_of_work import UnitOfWork
 
 
 class CreateUserUseCase(BaseUseCase[Tuple[UserCommand], UserResult]):

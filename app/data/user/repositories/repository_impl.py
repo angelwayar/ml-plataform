@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 
 from app.core.utils.hashing import Hasher
-from data.user.models.user import User
-from domain.user.entities.user_entity import UserEntity
-from domain.user.repositories.repository import Repository
+from app.data.user.models.user import User
+from app.domain.user.entities.user_entity import UserEntity
+from app.domain.user.repositories.repository import Repository
 
 
 class UserRepositoryImpl(Repository):
