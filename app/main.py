@@ -5,7 +5,7 @@ from api.user.routes.user_routes import router
 from core.database.database import engine
 from core.models.base_model import BaseEntity
 
-BaseEntity.metadata.create_all(bind=engine)
+# BaseEntity.metadata.create_all(bind=engine)
 
 app = FastAPI()
 app.include_router(router)
