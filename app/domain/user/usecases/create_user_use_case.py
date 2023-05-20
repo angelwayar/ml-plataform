@@ -36,11 +36,11 @@ class CreateUserUseCaseImpl(CreateUserUseCase):
             raise UserAlreadyExistsError()
 
         try:
-            self.unit_of_work.repository.create(entity=user)
+            result: UserEntity = self.unit_of_work.repository.create(entity=user)
         except Exception as _e:
             self.unit_of_work.rollback()
             raise
 
         self.unit_of_work.commit()
 
-        return UserResult(username=user.username)
+        return UserResult(username=result.username)

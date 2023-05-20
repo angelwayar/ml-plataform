@@ -18,10 +18,7 @@ class UserRepositoryImpl(Repository):
         return username_exists.username
 
     def authenticate_user(self, entity: UserEntity) -> User | None:
-        user: User | None = self.session \
-            .query(User) \
-            .filter(User.username == entity.username) \
-            .first()
+        user: User | None = self.session.query(User).filter(User.username == entity.username).first()
 
         if user is None:
             return None

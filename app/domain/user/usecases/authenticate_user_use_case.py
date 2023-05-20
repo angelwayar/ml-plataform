@@ -58,7 +58,6 @@ class AuthenticateUserUseCaseImpl(AuthenticateUserUseCase):
             access_token = self.create_access_token(
                 data={"sub": user_exists.username}, expires_delta=access_token_expires
             )
-            print(access_token)
         except Exception as _e:
             raise
         # --- Return Token ----
