@@ -2,4 +2,5 @@ from pydantic import BaseModel
 
 
 class ImageCommand(BaseModel):
-    image: str
+    owner_id: int
+    image_base: str
