@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from api.user.routes.user_routes import router
+from app.api.pixToPix.routes.pix_to_pix_routes import router_pix_to_pix
 from core.database.database import engine
 from core.models.base_model import BaseEntity
 
@@ -9,6 +10,7 @@ from core.models.base_model import BaseEntity
 
 app = FastAPI()
 app.include_router(router)
+app.include_router(router_pix_to_pix)
 
 
 @app.get("/")
