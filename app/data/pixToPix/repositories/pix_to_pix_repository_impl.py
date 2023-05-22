@@ -38,7 +38,8 @@ class PixToPixRepositoryImpl(PixToPixRepository):
         return result.to_entity()
 
     def update(self, entity: ImageEntity) -> ImageEntity:
-        pass
+        image = Image.from_entity(image=entity)
+        update_data = image.to_dict()
 
     def delete_by_id(self, id: int) -> ImageEntity:
         statement = delete(Image).filter_by(id=id).returning(*Image.__table__.columns)

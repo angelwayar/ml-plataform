@@ -1,9 +1,10 @@
 from sqlalchemy.orm import Session
 
 from app.domain.pixToPix.repositories.pix_to_pix_repository import PixToPixRepository
+from app.domain.pixToPix.repositories.pix_to_pix_unit_of_work import PixToPixUnitOfWork
 
 
-class PixToPixUnitOfWorkImpl(PixToPixRepository):
+class PixToPixUnitOfWorkImpl(PixToPixUnitOfWork):
 
     def __init__(self, session: Session, pix_to_pix_repository: PixToPixRepository):
         self.session: Session = session
