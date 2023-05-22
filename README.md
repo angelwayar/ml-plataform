@@ -17,10 +17,13 @@ Machine Learning Platform (MLP)
 | 9    |             |         | -   | [x]  |
 | 10   |             |         | -   | [x]  |
 | 11   |             |         | [x] | [ ]  |
-| 12   | [ ]         | [ ]     | [ ] | [ ]  |
-| 13   | [ ]         | [ ]     | [ ] | [ ]  |
+| 12   |             |         |     | [x]  |
+| 13   |             |         |     | [x]  |
 | 14   | [ ]         | [ ]     | [ ] | [ ]  |
-| 15   | [ ]         | [ ]     | [ ] | [ ]  |
+| 15   | [ ]         | [ ]     | [ ] | [x]  |
+| 16   |             |         | [x] | [ ]  |
+| 17   |             |         | [x] | [ ]  |
+| 18   | [ ]         | [ ]     | [ ] | [ ]  |
 
 
 ### Tasks from 14-05-2023/17-05-2023
@@ -40,7 +43,9 @@ Machine Learning Platform (MLP)
 13. Create model Image(id, ide_user, image_base64)
 14. Implement ml_model
 15. Repository
-16. Create endpoint logout
+16. Endpoint get all image
+17. Endpoint get image by id
+18. Create endpoint logout
 
 ## Architecture
 
