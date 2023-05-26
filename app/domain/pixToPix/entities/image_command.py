@@ -7,4 +7,5 @@ class ImageCommand(BaseModel):
 
 
 class ImageUpdateCommand(BaseModel):
+    image_base: str
     is_deleted: bool

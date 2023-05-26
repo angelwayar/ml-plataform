@@ -14,8 +14,10 @@ from app.domain.pixToPix.repositories.pix_to_pix_unit_of_work import PixToPixUni
 # Pix to pix
 from app.domain.pixToPix.services.image_query_service import ImageQueryService
 from app.domain.pixToPix.usecases.create_image_use_case import CreateImageUseCase, CreateImageUseCaseImpl
+from app.domain.pixToPix.usecases.delete_image_use_case import DeleteImageUseCase, DeleteImageUseCaseImpl
 from app.domain.pixToPix.usecases.get_image_use_case import GetImageUseCase, GetImageUseCaseImpl
 from app.domain.pixToPix.usecases.get_images_use_case import GetImagesUseCase, GetImagesUseCaseImpl
+from app.domain.pixToPix.usecases.update_image_use_case import UpdateImageUseCase, UpdateImageUseCaseImpl
 # Get session Data Base
 from core.database.database import get_session
 # User
@@ -95,3 +97,15 @@ def get_image_use_case(
         image_query_service: ImageQueryService = Depends(get_images_query_service)
 ) -> GetImageUseCase:
     return GetImageUseCaseImpl(image_query_service)
+
+
+def get_update_image_use_case(
+        unity_of_work: PixToPixUnitOfWork = Depends(get_pix_to_pix_image_unit_of_work)
+) -> UpdateImageUseCase:
+    return UpdateImageUseCaseImpl(unit_of_work=unity_of_work)
+
+
+def get_delete_image_use_case(
+        unity_of_work: PixToPixUnitOfWork = Depends(get_pix_to_pix_image_unit_of_work)
+) -> DeleteImageUseCase:
+    return DeleteImageUseCaseImpl(unit_of_work=unity_of_work)

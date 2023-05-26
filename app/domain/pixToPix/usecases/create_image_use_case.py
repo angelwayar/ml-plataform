@@ -38,4 +38,8 @@ class CreateImageUseCaseImpl(CreateImageUseCase):
 
         self.unit_of_work.commit()
 
-        return ImageResult(id=result.owner_id, image=result.image_base)
+        return ImageResult(
+            id=result.owner_id,
+            image=result.image_base,
+            is_deleted=image.is_deleted
+        )

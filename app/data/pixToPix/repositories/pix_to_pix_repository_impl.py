@@ -1,6 +1,6 @@
 from typing import Sequence
 
-from sqlalchemy import select, delete
+from sqlalchemy import select, update, delete
 from sqlalchemy.exc import NoResultFound
 from sqlalchemy.orm import Session
 
@@ -40,6 +40,19 @@ class PixToPixRepositoryImpl(PixToPixRepository):
     def update(self, entity: ImageEntity) -> ImageEntity:
         image = Image.from_entity(image=entity)
         update_data = image.to_dict()
+
+        for key in [Image.updated_at.key, Image.created_at.key]:
+            update_data.pop(key)
+
+        statement = update(Image).filter_by(id=image.id).values(update_data).returning(Image)
+
+        image_mapping = self.session.execute(statement=statement).fetchone()
+        if image_mapping is None:
+            raise
+
+        result, = image_mapping
+
+        return result.to_entity()
 
     def delete_by_id(self, id: int) -> ImageEntity:
         statement = delete(Image).filter_by(id=id).returning(*Image.__table__.columns)

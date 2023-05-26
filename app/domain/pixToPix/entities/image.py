@@ -12,14 +12,14 @@ class ImageEntity:
             owner_id: int | None,
             image_base: str,
             created_at: datetime | None = None,
-            update_at: datetime | None = None,
+            updated_at: datetime | None = None,
             is_deleted: bool | None = False
     ):
         self.id = id
         self.owner_id = owner_id
         self.image_base = image_base
         self.created_at = created_at
-        self.update_at = update_at
+        self.updated_at = updated_at
         self.is_deleted = is_deleted
 
     def update_entity(

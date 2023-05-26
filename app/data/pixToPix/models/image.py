@@ -31,8 +31,19 @@ class Image(BaseEntity):
     def to_read_model(self) -> ImageResult:
         return ImageResult(
             id=self.id,
-            image=self.image_base
+            image=self.image_base,
+            is_deleted=self.is_deleted,
         )
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'image_base': self.image_base,
+            'owner_id': self.owner_id,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
+            'is_deleted': self.is_deleted,
+        }
 
     @staticmethod
     def from_entity(image: ImageEntity) -> 'Image':
@@ -40,6 +51,6 @@ class Image(BaseEntity):
             id=image.id,
             owner_id=image.owner_id,
             image_base=image.image_base,
-            is_deleted=image.is_deleted
+            is_deleted=image.is_deleted,
             updated_at=image.updated_at,
         )
