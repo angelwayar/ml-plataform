@@ -20,10 +20,11 @@ Machine Learning Platform (MLP)
 | 12   |             |         |     | [x]  |
 | 13   |             |         |     | [x]  |
 | 14   | [ ]         | [ ]     | [ ] | [ ]  |
-| 15   | [ ]         | [ ]     | [ ] | [x]  |
+| 15   |             |         |     | [x]  |
 | 16   |             |         | [x] | [ ]  |
 | 17   |             |         | [x] | [ ]  |
-| 18   | [ ]         | [ ]     | [ ] | [ ]  |
+| 18   |             |         | [x] | [ ]  |
+| 19   |             |         | [x] | [ ]  |
 
 
 ### Tasks from 14-05-2023/17-05-2023
@@ -45,7 +46,8 @@ Machine Learning Platform (MLP)
 15. Repository
 16. Endpoint get all image
 17. Endpoint get image by id
-18. Create endpoint logout
+18. Endpoint Update image
+19. Endpoint Delete image
 
 ## Architecture
 
