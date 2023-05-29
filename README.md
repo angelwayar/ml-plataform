@@ -19,7 +19,7 @@ Machine Learning Platform (MLP)
 | 11   |             |         | [x] | [ ]  |
 | 12   |             |         |     | [x]  |
 | 13   |             |         |     | [x]  |
-| 14   | [ ]         | [ ]     | [ ] | [ ]  |
+| 14   |             |         |     | [x]  |
 | 15   |             |         |     | [x]  |
 | 16   |             |         | [x] | [ ]  |
 | 17   |             |         | [x] | [ ]  |
@@ -27,7 +27,7 @@ Machine Learning Platform (MLP)
 | 19   |             |         | [x] | [ ]  |
 
 
-### Tasks from 14-05-2023/17-05-2023
+### Tasks
 
 1. Create user model_views User(username, password)
 2. Create user entity UserEntity(username, password)
@@ -54,27 +54,30 @@ Machine Learning Platform (MLP)
 ```text
 app
 ├── core
-|   ├──models
-|   ├──errors
-|   ├──use_cases
-|   ├──work_units-(base_unit_of_work)
-|   └──repositories
-|
+|   └──feature
+|       ├──models
+|       ├──errors
+|       ├──use_cases
+|       ├──unit_of_work
+|       ├──ai_models
+|       ├──database
+|       ├──errors
+|       ├──services
+|       ├──token
+|       ├──utils
+|       └──repositories
 ├── api
-|   └──routes
-|
-├── application
-|   ├──model_views -> Puede que esto no pertenezca a esta capa
-|   ├──commands -> Implementacion del caso de uso
-|   └──queries -> Implementacion del caso de uso
-|
+|   └──feature
+|       └──routes
 ├── domain
-|   ├──use_cases -> Receive a create_model_view
-|   ├──entities
-|   ├──repositories
-|   └──unit_of_work
-|
-└── infrastructure
-    ├──repositories_impl
-    └──schemas-(DTO) 
+|   └──feature
+|       ├──use_cases
+|       ├──entities
+|       ├──services
+|       └──repositories
+├──  data
+|    └──feature
+|       ├──models
+|       ├──repositories_impl
+|       └──services 
 ```
