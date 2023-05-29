@@ -1,4 +1,7 @@
-from fastapi import status, Depends, HTTPException
+import io
+
+from fastapi import status, Depends, HTTPException, File, UploadFile
+from fastapi.responses import Response
 
 from app.api.pixToPix.routes import router_pix_to_pix
 from app.dependencies import (
@@ -7,6 +10,7 @@ from app.dependencies import (
     get_image_use_case,
     get_update_image_use_case,
     get_delete_image_use_case,
+    get_improve_image_rain_use_case,
 )
 from app.domain.pixToPix.entities.image_command import ImageCommand, ImageUpdateCommand
 from app.domain.pixToPix.entities.image_query import ImageResult
@@ -14,6 +18,7 @@ from app.domain.pixToPix.usecases.create_image_use_case import CreateImageUseCas
 from app.domain.pixToPix.usecases.delete_image_use_case import DeleteImageUseCase
 from app.domain.pixToPix.usecases.get_image_use_case import GetImageUseCase
 from app.domain.pixToPix.usecases.get_images_use_case import GetImagesUseCase
+from app.domain.pixToPix.usecases.improve_the_image_of_rain_use_case import ImproveImageRainUseCase
 from app.domain.pixToPix.usecases.update_image_use_case import UpdateImageUseCase
 
 
@@ -114,3 +119,20 @@ def delete_image(
         )
 
     return image
+
+
+@router_pix_to_pix.post('/image/')
+async def upload_image(
+        file: UploadFile = File(...),
+        improve_image_rain_use_case: ImproveImageRainUseCase = Depends(get_improve_image_rain_use_case)
+):
+    try:
+        img_byte_arr = io.BytesIO()
+        result = improve_image_rain_use_case((file,))
+        result.save(img_byte_arr, format='JPEG')
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+
+    return Response(content=img_byte_arr.getvalue(), media_type="image/png")

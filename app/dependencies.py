@@ -17,6 +17,8 @@ from app.domain.pixToPix.usecases.create_image_use_case import CreateImageUseCas
 from app.domain.pixToPix.usecases.delete_image_use_case import DeleteImageUseCase, DeleteImageUseCaseImpl
 from app.domain.pixToPix.usecases.get_image_use_case import GetImageUseCase, GetImageUseCaseImpl
 from app.domain.pixToPix.usecases.get_images_use_case import GetImagesUseCase, GetImagesUseCaseImpl
+from app.domain.pixToPix.usecases.improve_the_image_of_rain_use_case import ImproveImageRainUseCase, \
+    ImproveImageRainUseCaseImpl
 from app.domain.pixToPix.usecases.update_image_use_case import UpdateImageUseCase, UpdateImageUseCaseImpl
 # Get session Data Base
 from core.database.database import get_session
@@ -109,3 +111,7 @@ def get_delete_image_use_case(
         unity_of_work: PixToPixUnitOfWork = Depends(get_pix_to_pix_image_unit_of_work)
 ) -> DeleteImageUseCase:
     return DeleteImageUseCaseImpl(unit_of_work=unity_of_work)
+
+
+def get_improve_image_rain_use_case() -> ImproveImageRainUseCase:
+    return ImproveImageRainUseCaseImpl()
